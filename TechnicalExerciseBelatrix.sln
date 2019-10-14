@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppLogger", "AppLogger\AppL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logger.Exceptions", "Logger.Exceptions\Logger.Exceptions.csproj", "{4A48F8D5-A92C-4C35-A99B-668B45144D96}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logger.UnitTests", "Logger.UnitTests\Logger.UnitTests.csproj", "{B2C214EA-B8A0-4303-B13F-AAA4A18B42F4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{4A48F8D5-A92C-4C35-A99B-668B45144D96}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A48F8D5-A92C-4C35-A99B-668B45144D96}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A48F8D5-A92C-4C35-A99B-668B45144D96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2C214EA-B8A0-4303-B13F-AAA4A18B42F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2C214EA-B8A0-4303-B13F-AAA4A18B42F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2C214EA-B8A0-4303-B13F-AAA4A18B42F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2C214EA-B8A0-4303-B13F-AAA4A18B42F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

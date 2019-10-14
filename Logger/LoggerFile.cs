@@ -26,35 +26,44 @@ namespace Logger
 
             if (File.Exists(path))
             {
-                try
-                {
-                    logs = File.ReadAllText(path);
-                }
-                catch(Exception ex) 
-                {
-                    throw new LoggerFileException("There was an error reading the information in the log file:" + ex.Message);
-                }
+                logs = ReadLogs(path);
             }
 
             logs += Formats.LoggerFileMessage(type, message) + "\n";
 
-            try 
-            {
-                File.WriteAllText(path, logs);
-            }
-            catch (Exception ex) 
-            {
-                throw new LoggerFileException("There was an error writing to the log file: " + ex.Message);
-            }
-            
+            WriteLogs(path, logs);
         }
 
-        public static void Validations(string message)
+        private void Validations(string message)
         {
             if (string.IsNullOrEmpty(message))
             {
                 throw new LoggerFileException("The message cannot be empty.");
             }
         }
+
+        public string ReadLogs(string path) 
+        {
+            try
+            {
+                return File.ReadAllText(path);
+            }
+            catch (Exception ex)
+            {
+                throw new LoggerFileException("There was an error reading the information in the log file:" + ex.Message);
+            }
+        }
+
+        public void WriteLogs(string path, string logs) 
+        {
+            try
+            {
+                File.WriteAllText(path, logs);
+            }
+            catch (Exception ex)
+            {
+                throw new LoggerFileException("There was an error writing to the log file: " + ex.Message);
+            }
+        } 
     }
 }

@@ -27,7 +27,7 @@ namespace Logger
             Console.WriteLine(Formats.LoggerConsoleMessage(message));
         }
 
-        public static void Validations(string message)
+        private void Validations(string message)
         {
             if (string.IsNullOrEmpty(message))
             {
