@@ -12,6 +12,7 @@ namespace LoggerToCodeReview
         private static bool _logWarning;
         private static bool _logError;
         private static bool LogToDatabase;
+        // The variable '_initialized' was declared but never was used
         private bool _initialized;
         public JobLogger(bool logToFile, bool logToConsole, bool logToDatabase, bool logMessage, bool logWarning, bool logError)
         {
@@ -23,10 +24,10 @@ namespace LoggerToCodeReview
             _logToConsole = logToConsole;
         }
 
-        public static void LogMessage(string message, bool message_, bool warning, bool error)
+        public static void LogMessage(string message_, bool message, bool warning, bool error)
         {
-            message.Trim();
-            if (message == null || message.Length == 0)
+            message_.Trim();
+            if (message_ == null || message_.Length == 0)
             {
                 return;
             }
@@ -34,7 +35,7 @@ namespace LoggerToCodeReview
             {
                 throw new Exception("Invalid configuration");
             }
-            if ((!_logError && !_logMessage && !_logWarning) || (!message_ && !warning && !error))
+            if ((!_logError && !_logMessage && !_logWarning) || (!message && !warning && !error))
             {
                 throw new Exception("Error or Warning or Message must be specified");
             }
@@ -42,7 +43,7 @@ namespace LoggerToCodeReview
             System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(System.Configuration.ConfigurationManager.AppSettings["ConnectionString"]);
             connection.Open();
             int t = 0;
-            if (message_ && _logMessage)
+            if (message && _logMessage)
             {
                 t = 1;
             }
@@ -54,7 +55,7 @@ namespace LoggerToCodeReview
             {
                 t = 3;
             }
-            System.Data.SqlClient.SqlCommand command = new System.Data.SqlClient.SqlCommand("Insert into Log Values('" + message + "', " + t.ToString() + ")");
+            System.Data.SqlClient.SqlCommand command = new System.Data.SqlClient.SqlCommand("Insert into Log Values('" + message_ + "', " + t.ToString() + ")");
             command.ExecuteNonQuery();
 
             string l = "";
@@ -64,15 +65,15 @@ namespace LoggerToCodeReview
             }
             if (error && _logError)
             {
-                l = l + DateTime.Now.ToShortDateString() + message;
+                l = l + DateTime.Now.ToShortDateString() + message_;
             }
             if (warning && _logWarning)
             {
-                l = l + DateTime.Now.ToShortDateString() + message;
+                l = l + DateTime.Now.ToShortDateString() + message_;
             }
-            if (message_ && _logMessage)
+            if (message && _logMessage)
             {
-                l = l + DateTime.Now.ToShortDateString() + message;
+                l = l + DateTime.Now.ToShortDateString() + message_;
             }
             System.IO.File.WriteAllText(System.Configuration.ConfigurationManager.AppSettings["LogFileDirectory"] + "LogFile" + DateTime.Now.ToShortDateString() + ".txt", l);
 
@@ -84,16 +85,11 @@ namespace LoggerToCodeReview
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
             }
-            if (message_ && _logMessage)
+            if (message && _logMessage)
             {
                 Console.ForegroundColor = ConsoleColor.White;
             }
-            Console.WriteLine(DateTime.Now.ToShortDateString() + message);
-        }
-
-        public static void Main()
-        {
-
+            Console.WriteLine(DateTime.Now.ToShortDateString() + message_);
         }
 
     }

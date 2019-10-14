@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{90363706-1A4E-46F5-8F00-B4499DCBEB2B}</ProjectGuid>
+    <ProjectGuid>{8C3F7520-209A-479D-B769-6450C212882B}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>LoggerToCodeReview</RootNamespace>
-    <AssemblyName>LoggerToCodeReview</AssemblyName>
+    <RootNamespace>Logger.Interfaces</RootNamespace>
+    <AssemblyName>Logger.Interfaces</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -37,7 +37,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,11 +46,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="JobLogger.cs" />
+    <Compile Include="ILogger.cs" />
+    <Compile Include="ILoggerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <ProjectReference Include="..\Logger.Transverse\Logger.Transverse.csproj">
+      <Project>{97b974ff-0ba7-488a-9cb4-37ffa07d8eaf}</Project>
+      <Name>Logger.Transverse</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

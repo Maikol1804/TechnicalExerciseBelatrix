@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{90363706-1A4E-46F5-8F00-B4499DCBEB2B}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>LoggerToCodeReview</RootNamespace>
-    <AssemblyName>LoggerToCodeReview</AssemblyName>
+    <ProjectGuid>{0FCD0089-A3C7-4438-876A-696F92C8D0DF}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>AppLogger</RootNamespace>
+    <AssemblyName>AppLogger</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -32,12 +32,8 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,11 +43,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="JobLogger.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Logger.Exceptions\Logger.Exceptions.csproj">
+      <Project>{4a48f8d5-a92c-4c35-a99b-668b45144d96}</Project>
+      <Name>Logger.Exceptions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Logger.Factory\Logger.Factory.csproj">
+      <Project>{edcc5036-939f-40b6-8b7d-0f100d5d3826}</Project>
+      <Name>Logger.Factory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Logger.Interfaces\Logger.Interfaces.csproj">
+      <Project>{8c3f7520-209a-479d-b769-6450c212882b}</Project>
+      <Name>Logger.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Logger.Transverse\Logger.Transverse.csproj">
+      <Project>{97b974ff-0ba7-488a-9cb4-37ffa07d8eaf}</Project>
+      <Name>Logger.Transverse</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Logger\Logger.csproj">
+      <Project>{3ba43c33-808b-4c06-a253-6d4db7415443}</Project>
+      <Name>Logger</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
