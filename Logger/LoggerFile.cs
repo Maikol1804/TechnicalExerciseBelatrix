@@ -17,6 +17,7 @@ namespace Logger
         public void AddMessage(Enums.MessageTypes type, string message)
         {
             Validations(message);
+            message.Trim();
 
             string logs = string.Empty;
 

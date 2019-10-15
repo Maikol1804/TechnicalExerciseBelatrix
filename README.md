@@ -1,13 +1,17 @@
 # Technical Exercise Belatrix
 
-This is technical exercise using c# .Net to Belatrix Software.
+This is technical exercise using C# .Net to Belatrix Software.
+
+## Problem
+
+Please review the following code snippet. Assume that all referenced assemblies have
+been properly included.
 
 The code is used to log different messages throughout an application. We want the
 ability to be able to log to a text file, the console and/or the database. Messages can be
 marked as message, warning or error. We also want the ability to selectively be able to
 choose what gets logged, such as to be able to log only errors or only errors and
 warnings.
-
 
 ## Code Review
 
@@ -26,7 +30,7 @@ warnings.
 
 ###### Specific Comments:
 
-Specific comments can be seen directly in the code [here](LoggerToCodeReview/JobLogger.cs)
+The specific comments can be seen directly in the `JobLogger` class, found [here](LoggerToCodeReview/JobLogger.cs).
 
 
 ## Code Refactoring
@@ -37,9 +41,11 @@ The following improvements were implemented for the given code:
 2. Enumerators were created to better manage all variables.
 3. The names of the variables and methods were changed to be clearer, and these follow the standard clean code nomenclature.
 4. Custom classes were added for handling exceptions of each type of log.
-5. Unit tests were added for the functionality of each type of log and for the factory responsible for creating the log types.
+5. Unit tests were added for the functionality of each type of log and for the factory responsible for creating the log types *(33 unit tests were created)*.
 6. Several components were created that can easily be extended.
+
+All these improvements can be seen in the code, starting with the `Program.cs` file, which is [here](AppLogger/Program.cs).
+
 
 
 That's it :+1:
-

@@ -22,6 +22,7 @@ namespace Logger
         public void AddMessage(MessageTypes type, string message)
         {
             Validations(message);
+            message.Trim();
 
             Console.ForegroundColor = _consoleColors[type];
             Console.WriteLine(Formats.LoggerConsoleMessage(message));

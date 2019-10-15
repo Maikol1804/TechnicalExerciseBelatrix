@@ -17,6 +17,7 @@ namespace Logger
         {
             
             Validations(message);
+            message.Trim();
 
             string connectionString = ConfigurationManager.AppSettings["ConnectionString"];
             
